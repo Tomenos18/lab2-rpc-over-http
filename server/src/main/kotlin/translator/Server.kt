@@ -30,10 +30,9 @@ private const val TRANSLATOR_NAMESPACE_URI = "http://translator/web/ws/schema"
 class TranslatorEndpoint {
     @PayloadRoot(namespace = TRANSLATOR_NAMESPACE_URI, localPart = "TranslationRequest")
     @ResponsePayload
-    fun translation(@RequestPayload request: TranslationRequest): TranslationResponse = {
-        var res = TranslationResponse()
-        res.translation = "Hola!"
-        return res
+    fun translation(@RequestPayload request: TranslationRequest): TranslationResponse =
+          TranslationResponse().apply {
+          translation = "traduccion"
     }
 }
 
